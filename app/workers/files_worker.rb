@@ -1,4 +1,4 @@
-class ProcessWorker
+class FilesWorker
   	include Sidekiq::Worker
 
   	def perform(path)
