@@ -2,9 +2,12 @@ class RhythmboxWorker
   	include Sidekiq::Worker
 
   	def perform(state)
-  		if state=="play"
-  			a = Process.spawn("rhythmbox-client --check-running")
-  			puts a
+  		if state.eql?("play")
+  			play()
+  		elsif state.eql?("pause")
+  			pause()
+  		elsif state.eql?("next")
+  			playNext()
   		end
   	end
 
@@ -13,6 +16,10 @@ class RhythmboxWorker
   	end
 
   	def pause()
-  		Process.spawn("rhythmbox-client --play")
+  		Process.spawn("rhythmbox-client --pause")
+  	end
+
+  	def playNext()
+  		Process.spawn("rhythmbox-client --pause")
   	end
 end
