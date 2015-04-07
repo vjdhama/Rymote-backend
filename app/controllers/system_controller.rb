@@ -14,13 +14,14 @@ class SystemController < ApplicationController
 	end
 
 	def volume
-		if params[:up]
-			VolumeWorker.perform_async(params[:up])
-		elsif params[:down]
-			VolumeWorker.perform_async(params[:down])
-		end	
+		VolumeWorker.perform_async(params[:amount])
+	end
+
+	def firefox
+		FirefoxWorker.perform_async(params[:url])
 	end
 
 	def vlc
+		VlcWorker.perform_async(params[:state])
 	end
 end

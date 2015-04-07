@@ -20,6 +20,6 @@ class RhythmboxWorker
   	end
 
   	def playNext()
-  		Process.spawn("rhythmbox-client --pause")
+  		Process.spawn("rhythmbox-client --next")
   	end
 end

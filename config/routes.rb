@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/api/files' => 'system#files'
   get '/api/musique' => 'system#musique'
   get '/api/rhythmbox' => 'system#rhythmbox'
+  get '/api/volume' => 'system#volume'
+  get '/api/firefox' => 'system#firefox'
+  get '/api/vlc' => 'system#vlc'
   
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
