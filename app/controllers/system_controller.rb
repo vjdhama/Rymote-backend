@@ -5,8 +5,8 @@ class SystemController < ApplicationController
 
 	def musique
 		MusiqueWorker.perform_async(params[:state])
-    	msg = { :status => "ok", :message => "Success!"}
-    	render :json => msg
+    	#msg = { :status => "ok", :message => "Success!"}
+    	#render :json => msg
 	end
 
 	def rhythmbox

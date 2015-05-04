@@ -2,7 +2,9 @@ class RhythmboxWorker
   	include Sidekiq::Worker
 
   	def perform(state)
-  		if state.eql?("play")
+  		if state.eql?("start")
+            start()    
+        elsif state.eql?("pause")
   			play()
   		elsif state.eql?("pause")
   			pause()

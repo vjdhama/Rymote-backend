@@ -2,9 +2,12 @@ class MusiqueWorker
   	include Sidekiq::Worker
 
   	def perform(state)
-  		if state=="next"
-  			logger.info "Playing next song!!"
-  			playNext()
+  		if state=="start"
+            logger.info "Starting Player!!"
+            startPlayer() 
+        elsif state=="next"
+            logger.info "Playing next song!!"
+            playNext()   
   		else
   			logger.info "Toggling play/pause!!"
   			togglePlaying()
@@ -18,4 +21,8 @@ class MusiqueWorker
   	def togglePlaying()
   		Process.spawn("musique --toggle-playing")
   	end
+
+    def startPlayer()
+        Process.spawn("musique")
+    end
 end

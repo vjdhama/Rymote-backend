@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get '/api/firefox' => 'system#firefox'
   get '/api/vlc' => 'system#vlc'
   
+  mount Sidekiq::Web => '/sidekiq'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
